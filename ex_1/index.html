@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Крошечный документ HTML5</title>
+        <link rel="stylesheet" href="public/bootstrap.min.css">
+        <script src="public/jquery.min.js"></script>
+        <link rel="stylesheet" href="public/style.css">
+        <script src="public/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="row full-header">
+                    <div class="col-2 site-title">
+                        <a href="#">
+                            <span>SITE</span>
+                            <span>EXAMPLE</span>
+                        </a>
+                    </div>
+                    <div class="col-10 menu">
+                        <a href="#history">История</a>
+                        <a href="#install">Установка</a>
+                        <a href="#app">Приложение</a>
+                        <a href="#help">Фреймворки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mobile-header">
+                
+            </div>
+        </header>
+        <div class="to-top"></div>
+        <main>
+            <div class="container">
+                <h1>NodeJS / Обзор</h1>
+                <img src="public/images/node.png" class="banner" alt="Node.js баннер" title="Node.js баннер">
+                <h2 id="history">Немного истории</h2>
+                <p>
+                    <a target="_blank" href="https://itproger.com/course/node-js">NodeJS</a>
+                     произвёл настоящую революцию в подходе к построению сайтов. Почему он стал таким популярным, на что способен Node и какие его основные функции. Об этом в этой статье.
+                </p>
+                <p>
+                    <a target="_blank" href="https://itproger.com/course/node-js">NodeJS</a>
+                    был придуман Райаном Далем в 2009. Еще до создания NodeJS, Даль занимался разработкой на Ruby on Rails.
+                    Основную идею для NodeJS он позаимствовал с Flickr (сайт для загрузки и обмена изображениями).
+                    На сайте была шкала состояния, которая показывала статус загрузки изображения.
+                    Сейчас это кажется чем-то самим собой разумеющимся, но тогда, в начале нулевых, подобное «общение» со стороны сервера было чем-то новым и необычным.
+                    Именно это и «зацепило» Даля, ведь раньше серверы не имели возможностей для одновременной обработки нескольких запросов
+                    (например, при загрузке изображения и параллельных запросах со стороны того же пользователя). Это явление называется 
+                    <a target="_blank" href="https://www.techopedia.com/definition/25146/concurrency-programming">параллелизмом</a>.
+                </p>
+                <hr>
+                <p>
+                    NodeJS не являлся стандартным веб-сервером ни раньше, ни сейчас. При <i>распаковке</i> <b>NodeJS</b> он не запускается сразу как веб-сервер. Для этих целей разработчикам потребуются фреймворки или прописывание логики в NodeJS.
+                </p>
+                <p>Основные преимущества</p>
+                <ol>
+                    <li>Скорость</li>
+                    <li>Простота</li>
+                    <li>JavaScript</li>
+                    <li>Движок V8</li>
+                    <li>Асинхронность</li>
+                    <li>Библиотеки</li>
+                </ol>
+
+
+                <h2>Введение в Node.js</h2>
+                <h3 id="install">Установка</h3>
+                <p>
+                    Node.js можно устанавливать различными способами, которые мы сейчас рассмотрим.
+                    <br>
+                    Так, официальные установочные пакеты для всех основных платформ можно найти <a href="https://nodejs.org/en/download/" target="_blank">здесь</a>.
+                </p>
+                <p>
+                    Существует ещё один весьма удобный способ установки Node.js, который заключается в использовании менеджера пакетов, имеющегося в операционной системе.
+                    Например, менеджер пакетов macOS, который является фактическим стандартом в этой области, называется <b>Homebrew</b>.
+                    Если он в вашей системе есть, вы можете установить Node.js, выполнив эту команду в командной строке:
+                </p>
+                <code>
+                    brew install node
+                </code>
+                <p>
+                    Список менеджеров пакетов для других операционных систем, в том числе — для Linux и Windows, можно найти <a href="https://nodejs.org/en/download/package-manager/" target="_blank">здесь</a>.
+                </p>
+                <h3 id="app">Первое Node.js-приложение</h3>
+                <p>Самым распространённым примером первого приложения для Node.js можно назвать простой веб-сервер. Вот его код:</p>
+                <code>
+                    const http = require('http');
+                    <br>
+                    const hostname = '127.0.0.1';
+                    <br>
+                    const port = 3000;
+                    <br>
+                    const server = http.createServer((req, res) => {
+                        <br>
+                        <span class="tab">res.statusCode = 200</span>
+                        <br>
+                        <span class="tab">res.setHeader('Content-Type', 'text/plain')</span>
+                        <br>
+                        <span class="tab">res.end('Hello World\n')</span>
+                        <br>
+                    });
+                    <br>
+                    server.listen(port, hostname, () => {
+                        <br>
+                        <span class="tab">console.log(`Server running at http://${hostname}:${port}/`)</span>
+                        <br>
+                    });
+                </code>
+                <h2 id="help">Фреймворки и вспомогательные инструменты для Node.js</h2>
+                <p>Node.js — это низкоуровневая платформа. Для того чтобы упростить разработку для неё и облегчить жизнь программистам, было создано огромное количество библиотек. Некоторые из них со временем стали весьма популярными. Вот небольшой список библиотек, которые я считаю отлично сделанными и достойными изучения:</p>
+                <ul>
+                    <li>
+                        <a href="https://expressjs.com/" target="_blank">Express.</a>
+                         Эта библиотека предоставляет разработчику предельно простой, но мощный инструмент для создания веб-серверов. Ключом к успеху Express стал минималистический подход и ориентация на базовые серверные механизмы без попытки навязать некое видение «единственно правильной» серверной архитектуры.
+                    </li>
+                    <li>
+                        <a href="https://flaviocopes.com/meteor/" target="_blank">Meteor.</a>
+                         Это — мощный фулстек-фреймворк, реализующий изоморфный подход к разработке приложений на JavaScript и к использованию кода и на клиенте, и на сервере. Когда-то Meteor представлял собой самостоятельный инструмент, включающий в себя всё, что только может понадобиться разработчику. Теперь он, кроме того, интегрирован с фронтенд-библиотеками, такими, как React, Vue и Angular. Meteor, помимо разработки обычных веб-приложений, можно использовать и в мобильной разработке.
+                    </li>
+                    <li>
+                        <a href="http://koajs.com/" target="_blank">Koa.</a>
+                         Этот веб-фреймворк создан той же командой, которая занимается работой над Express. При его разработке, в основу которой легли годы опыта работы над Express, внимание уделялось простоте решения и его компактности. Этот проект появился как решение задачи внесения в Express серьёзных изменений, несовместимых с другими механизмами фреймворка, которые могли бы расколоть сообщество.
+                    </li>
+                    <li>
+                        <a href="https://flaviocopes.com/nextjs/" target="_blank"> Next.js.</a>
+                        Этот фреймворк предназначен для организации серверного рендеринга React-приложений.
+                    </li>
+                    <li>
+                        <a href="https://github.com/zeit/micro" target="_blank">Micro.</a>
+                         Это — весьма компактная библиотека для создания асинхронных HTTP-микросервисов.
+                    </li>
+                    <li>
+                        <a href="https://socket.io/" target="_blank">Socket.io.</a>
+                         Это библиотека для разработки сетевых приложений реального времени.
+                    </li>
+                </ul>
+
+                <h2>Примеры работ</h2>
+                <p>
+                    Эти сайты сделаны на <b>Node.js</b>
+                </p>
+                <div id="block-for-slider">
+                    <div id="viewport">
+                        <ul id="slidewrapper">
+                            <li class="slide"><img src="public/images/slider/1.png" alt="Слайд 1" title="Слайд 1" class="slide-img"></li>
+                            <li class="slide"><img src="public/images/slider/2.png" alt="Слайд 2" title="Слайд 2" class="slide-img"></li>
+                            <li class="slide"><img src="public/images/slider/3.png" alt="Слайд 3" title="Слайд 3" class="slide-img"></li>
+                            <li class="slide"><img src="public/images/slider/4.png" alt="Слайд 4" title="Слайд 4" class="slide-img"></li>
+                        </ul>
+                        <div id="prev-next-btns">
+                            <div id="prev-btn"></div>
+                            <div id="next-btn"></div>
+                        </div>
+            
+                        <ul id="nav-btns">
+                            <li class="slide-nav-btn"></li>
+                            <li class="slide-nav-btn"></li>
+                            <li class="slide-nav-btn"></li>
+                            <li class="slide-nav-btn"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="row full-header">
+                    <div class="col-2 site-title">
+                        <a href="#">
+                            <span>SITE</span>
+                            <span>EXAMPLE</span>
+                        </a>
+                    </div>
+                    <div class="col-10 menu">
+                        <a href="#history">История</a>
+                        <a href="#install">Установка</a>
+                        <a href="#app">Приложение</a>
+                        <a href="#help">Фреймворки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mobile-header">
+                
+            </div>
+        </footer>
+    </body>
+</html>

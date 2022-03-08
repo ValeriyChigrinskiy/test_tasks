@@ -1,0 +1,231 @@
+:root{
+    --font-color-primary:#ffffff;
+    --font-color-secondary:#ff8800;
+    --background-color-primary:#140E1D;
+    --background-color-secondary:rgba(255, 255, 255,0.63);
+}
+body{
+    background:var(--background-color-primary);
+    color:var(--font-color-primary);
+}
+
+header .full-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+header .full-header > .site-title{
+    padding-left:0px;
+}
+header .full-header > .site-title > a{
+    text-decoration: none;
+    color:var(--font-color-primary)
+}
+header .full-header > .site-title > a > span{
+    text-transform: uppercase;
+    display: block;
+}
+header .full-header > .site-title > a > span:first-child{
+    font-size: 2em;
+    font-weight: bold;
+}
+header .full-header > .site-title > a > span:last-child{
+    font-size: 1em;
+}
+header .full-header > .menu{
+    text-align: right;
+}
+header .full-header > .menu > a{
+    display: inline-block;
+    margin-top:1em;
+    margin-left:1em;
+    color:var(--font-color-primary);
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+}
+header .full-header > .menu > a:hover{
+    color:var(--font-color-secondary);
+}
+
+main>.container{
+    /* background:var(--background-color-secondary); */
+}
+
+main h1{
+    margin-top:1em;
+}
+
+img.banner{
+    width:100%;
+    height:auto;
+    object-fit: contain;
+    margin-bottom:30px;
+}
+
+code span.tab{
+    margin-left:2em;
+}
+ul > li{
+    margin-bottom: 1em;
+}
+
+#block-for-slider {
+    width: 100%;
+    margin: 0 auto;
+    /* margin-top: 100px; */
+}
+
+#viewport {
+    width: 100%;
+    display: table;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#slidewrapper {
+    position: relative;
+    width: calc(100% * 4);
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+#slidewrapper ul, #slidewrapper li {
+    margin: 0;
+    padding: 0;
+}
+
+#slidewrapper li {
+    width: calc(100%/4);
+    list-style: none;
+    display: inline;
+    float: left;
+}
+
+code{
+    display: block;
+    margin:16px;
+    padding:16px;
+    border:1px solid var(--font-color-primary);
+    border-radius: 16px;
+}
+
+.slide-img {
+    width: 100%;
+}
+
+
+
+footer{
+    margin-top:20px;
+}
+footer .full-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer .full-header > .site-title{
+    padding-left:0px;
+}
+footer .full-header > .site-title > a{
+    text-decoration: none;
+    color:var(--font-color-primary)
+}
+footer .full-header > .site-title > a > span{
+    text-transform: uppercase;
+    display: block;
+}
+footer .full-header > .site-title > a > span:first-child{
+    font-size: 2em;
+    font-weight: bold;
+}
+footer .full-header > .site-title > a > span:last-child{
+    font-size: 1em;
+}
+footer .full-header > .menu{
+    text-align: right;
+}
+footer .full-header > .menu > a{
+    display: inline-block;
+    margin-top:1em;
+    margin-left:1em;
+    color:var(--font-color-primary);
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+}
+footer .full-header > .menu > a:hover{
+    color:var(--font-color-secondary);
+}
+
+.to-top{
+    position: fixed;
+    display: block;
+    top:0px;
+    left:0px;
+    height:100vh;
+    width:100px;
+    transition: background-color 0.15s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.048);
+    z-index: 999;
+}
+.to-top:hover{
+    background-color: rgba(255, 255, 255, 0.144);
+}
+.to-top::after{
+    content:"Наверх";
+    position: absolute;
+    bottom:1em;
+    left:1em;
+        
+}
+@media screen and (max-width:600px){
+    .to-top{
+        position: fixed;
+        display: block;
+        top:unset;
+        left:0px;
+        bottom:0px;
+        width:2em;
+        height:6em;
+        overflow: hidden;
+        border-radius: 0px 8px 0px 0px;
+    }
+    .to-top::after{
+        content:"Наверх";
+        position: absolute;
+        bottom:2em;
+        left:-1em;
+        transform: rotateZ(-90deg);  
+    }
+}
+@media screen and (max-width:600px){
+
+    header .full-header > .menu > a{
+        margin-top:0.5em;
+        margin-left:0px;
+        width:45%;
+        color:var(--font-color-primary);
+        text-decoration: none;
+        transition: all 0.15s ease-in-out;
+    }
+    footer .full-header > .menu > a{
+        margin-top:0.5em;
+        margin-left:0px;
+        width:45%;
+        color:var(--font-color-primary);
+        text-decoration: none;
+        transition: all 0.15s ease-in-out;
+    }
+}
